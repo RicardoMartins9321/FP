@@ -1,18 +1,17 @@
-n = int(input('Enter the number: '))
-
 
 def isPrime(n):
-    if n == 0 or n == 1:
+    if n < 2:
         return False
-    elif n == 2 or n == 3 or n == 5 or n == 7 or n == 9:
-        return True
-    for x in [2, 3, 5, 7, 9]:
-        if n % x == 0:
+    for i in range(2, n):
+        if n%i == 0:
             return False
-        else:
-            return True
+    return True
 
+def main():
+    print("Prime numbers")
+    n = int(input("n? "))
+    for i in range(2, n+1):
+        if isPrime(i):
+            print(i)
 
-value = isPrime(n)
-
-print(f'{n} is prime: {value}')
+main()
