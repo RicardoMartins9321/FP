@@ -1,4 +1,4 @@
-with open('pg3333.txt', 'r', encoding='utf-8') as file:
+with open('FP_AulasPráticas/aula09/pg3333.txt', 'r', encoding='utf-8') as file:
     letters = {}
     for line in file:
         for letter in line:
