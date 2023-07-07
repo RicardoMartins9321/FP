@@ -1,7 +1,7 @@
 import bisect
 
 lst = []
-with open('wordlist.txt', 'r') as words:
+with open('FP_AulasPráticas/aula09/wordlist.txt', 'r') as words:
     for line in words:
         lst.append(line.strip())
 
