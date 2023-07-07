@@ -54,3 +54,6 @@ def media():
 
 
 media()
+
+v = int(input('Number: '))
+print("Números inferiores a v:" + countLower(list, v))
