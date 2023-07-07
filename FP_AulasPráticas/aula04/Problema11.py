@@ -1,21 +1,28 @@
-n = int(input('Enter a positive number: '))
-list = []
+def calcular_divisores(N):
+    divisores = []
+    for i in range(1, N):
+        if N % i == 0:
+            divisores.append(i)
+    return divisores
 
-
-def div(n):
-    divs = 0
-    if n <= 0:
-        print('Not a valid number')
-    for i in range(1, n):
-        if n % i == 0:
-            list.append(i)
-        value = sum(list)
-    if value < n:
-        print(f'{list} são divisores de n e é um número deficiente')
-    elif value == n:
-        print(f'{list} são divisores de n e é um número perfeito')
+def classificar_numero(N):
+    divisores = calcular_divisores(N)
+    soma_divisores = sum(divisores)
+    if soma_divisores < N:
+        return "Número deficiente"
+    elif soma_divisores == N:
+        return "Número perfeito"
     else:
-        print(f'{list} são divisores de n e é um número abundante')
+        return "Número abundante"
 
+# Ler o número do teclado
+N = int(input("Digite um número inteiro positivo: "))
 
-div(n)
+# Calcular e imprimir os divisores próprios
+divisores = calcular_divisores(N)
+print("Divisores próprios:", divisores)
+
+# Classificar o número
+classificacao = classificar_numero(N)
+print(classificacao)
+
