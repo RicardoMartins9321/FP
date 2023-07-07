@@ -30,9 +30,9 @@ def printPauta(lst):
 # d)
 def main():
     lst = []
-    loadFile("school1.csv", lst)
-    loadFile("school2.csv", lst)
-    loadFile("school3.csv", lst)
+    loadFile("FP_AulasPráticas/aula06/school1.csv", lst)
+    loadFile("FP_AulasPráticas/aula06/school2.csv", lst)
+    loadFile("FP_AulasPráticas/aula06/school3.csv", lst)
 
     lst.sort()
 
