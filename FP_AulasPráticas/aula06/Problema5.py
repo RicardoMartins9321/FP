@@ -28,9 +28,6 @@ def main():
     t = floatInput("Temperature (Celsius)? ", min=-273.15)
     print("t:", t)
 
-    # d) What happens if you uncomment this?
-    # impossible = floatInput("Value in [3, 0]? ", min=3, max=0)
-
     return
 
 
