@@ -2,7 +2,7 @@ import turtle
 
 t = turtle.Turtle()
 try:
-    with open('drawing.txt', 'r') as numbers:
+    with open('FP_AulasPráticas/aula06/drawing.txt', 'r') as numbers:
         for line in numbers:
             if line == 'UP\n':
                 t.up()
