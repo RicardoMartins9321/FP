@@ -1,71 +1,71 @@
-NAME, DATE, OPEN, MAX, MIN, CLOSE, VOLUME = 0, 1, 2, 3, 4, 5, 6
+def readStocks(filename):
+    stocks = []
+    with open(filename, 'r') as file:
+        next(file)  # Pula o cabeçalho
+        for line in file:
+            company, date, opening, high, low, close, volume = line.strip().split('\t')
+            stock = (company, date, float(opening), float(high), float(low), float(close), int(volume))
+            stocks.append(stock)
+    return stocks
+
+def totalVolume(lst):
+    volume_dict = {}
+    for stock in lst:
+        company, _, _, _, _, _, volume = stock
+        if company in volume_dict:
+            volume_dict[company] += volume
+        else:
+            volume_dict[company] = volume
+    return volume_dict
+
+def maxValorization(lst):
+    valorization_dict = {}
+    for stock in lst:
+        company, date, opening, _, _, close, _ = stock
+        valorization = (close / opening - 1) * 100
+        if date in valorization_dict:
+            if valorization > valorization_dict[date][1]:
+                valorization_dict[date] = (company, valorization)
+        else:
+            valorization_dict[date] = (company, valorization)
+    return valorization_dict
+
+def stocksByDateByName(lst):
+    stocks_dict = {}
+    for stock in lst:
+        company, date, opening, high, low, close, volume = stock
+        if date in stocks_dict:
+            stocks_dict[date][company] = (opening, high, low, close, volume)
+        else:
+            stocks_dict[date] = {company: (opening, high, low, close, volume)}
+    return stocks_dict
+
+def portfolioValue(portfolio, date, stocks_dict):
+    total_value = 0.0
+    if date in stocks_dict:
+        stocks = stocks_dict[date]
+        for company, quantity in portfolio.items():
+            if company in stocks:
+                _, _, _, close, _ = stocks[company]
+                total_value += close * quantity
+    return total_value
 
 
 def main():
-    lst = loadStockFile("nasdaq.csv")
-    # Show just first and last tuples:
-    print("first:", lst[1])
-    print("last:", lst[-1])
+    filename = 'FP_AulasPráticas/aula07/nasdaq.csv'
+    stocks = readStocks(filename)
+    print("Total Volume:")
+    print(totalVolume(stocks))
+    print("Max Valorization:")
+    print(maxValorization(stocks))
+    print("Stocks by Date and Name:")
+    print(stocksByDateByName(stocks))
+    print("Portfolio Value:")
+    portfolio = {'NFLX': 100, 'CSCO': 80}
+    date = '2022-01-05'
+    stocks_dict = stocksByDateByName(stocks)
+    print(portfolioValue(portfolio, date, stocks_dict))
 
-    print("a) totVol=", totalVolume(lst))
-
-    print("b) maxVal=", maxValorization(lst))
-
-    stocksDic = stocksByDateByName(lst)
-    print("c) CSCO@11:", stocksDic['2020-10-12']['CSCO'])
-    print("c) AMZN@22:", stocksDic['2020-10-22']['AMZN'])
-
-    port = {'NFLX': 100, 'CSCO': 80}
-    print("d) portfolio@01:", portfolioValue(stocksDic, port, "2020-10-01"))
-    print("d) portfolio@30:", portfolioValue(stocksDic, port, "2020-10-30"))
-
-
-def loadStockFile(filename):
-    lst = []
-    with open(filename) as f:
-        for line in f:
-            parts = line.strip().split('\t')
-            name = parts[NAME]
-            date = parts[DATE]
-            tup = (name, date, float(parts[OPEN]), float(parts[MAX]),
-                   float(parts[MIN]), float(parts[CLOSE]), int(parts[VOLUME]))
-            lst.append(tup)
-
-    print(lst)
-
-
-def totalVolume(lst):
-    totVol = {}
-    volume = 0
-    company = ''
-    for tup in lst:
-        company = tup[0]
-        volume += company[VOLUME]
-        totVol[company] = volume
-    return totVol
-
-
-def maxValorization(lst):
-    vMax = {}
-    # Complete ...
-
-    return vMax
-
-
-def stocksByDateByName(lst):
-    dic = {}
-    # Complete ...
-
-    return dic
-
-
-def portfolioValue(stocks, portfolio, date):
-    assert date in stocks
-    val = 0.0
-    # Complete ...
-
-    return val
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
+
