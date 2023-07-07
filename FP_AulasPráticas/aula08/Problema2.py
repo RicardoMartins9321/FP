@@ -1,4 +1,4 @@
-with open("aula08/names.txt", "r", encoding="utf-8") as names:
+with open("FP_AulasPráticas/aula08/names.txt", "r", encoding="utf-8") as names:
     name_dic = {}
     names.readline()
     for line in names:
