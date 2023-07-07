@@ -1,4 +1,4 @@
-with open('aula07/pg3333.txt', 'r', encoding="utf-8") as text:
+with open('FP_AulasPráticas/aula07/pg3333.txt', 'r', encoding="utf-8") as text:
     letras = {}
     for linha in text:
         for char in linha:
