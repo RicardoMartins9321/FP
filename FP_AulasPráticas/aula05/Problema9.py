@@ -1,13 +1,10 @@
-s = input('Texto:')
+s = input('String: ')
 
 # a)
-
-
 def evenThenOdd(s):
     return s[0::2] + s[1::2]
 
-
-""" print(evenThenOdd(s)) """
+print("String alterada:", evenThenOdd(s))
 
 
 # b)
@@ -24,13 +21,11 @@ def noduplicates(s):
         str += element
     return str
 
+print("String sem letras duplicadas:", noduplicates(s))
 
-""" print(noduplicates(s)) """
 
 # c)
-
 n = int(input('Número: '))
-
 
 def repeatenumber(n):
     if n >= 0:
@@ -40,18 +35,18 @@ def repeatenumber(n):
                 lst.append(i)
         return lst
 
+print(repeatenumber(n))
 
-""" print(repeatenumber(n)) """
 
 # d)
 lst = []
+
 while True:
     n = input('Número da lista: ')
     if n == '':
         break
     else:
         lst.append(int(n))
-
 
 def maximo(lst):
     maxim = int(lst[0])
@@ -64,5 +59,4 @@ def maximo(lst):
             index_max = index
     return index_max
 
-
-print(maximo(lst))
+print("Maior valor:", maximo(lst))
