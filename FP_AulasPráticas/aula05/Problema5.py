@@ -1,4 +1,10 @@
-list = ['SCP', 'SLB', 'FCP']
+list = []
+equipa = '0'
+
+while equipa != '' or len(list) < 2:
+    equipa = input('Equipa: ')
+    if equipa != '' and equipa not in list:
+        list.append(equipa)
 
 
 def allMatches(list):
@@ -10,4 +16,5 @@ def allMatches(list):
     return matches
 
 
-print(allMatches(list))
+print("Jogos:", allMatches(list))
+
