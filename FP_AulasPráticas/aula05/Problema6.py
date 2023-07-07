@@ -9,4 +9,4 @@ def countDigits(x):
     return p
 
 
-print(countDigits(x))
+print("Número de digitos:", countDigits(x))
