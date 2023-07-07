@@ -19,5 +19,6 @@ def CompareFiles(file1, file2):
     return "Os ficheiros são iguais"
 
 
-print(CompareFiles("nums.txt", "nums.txt"))
-print(CompareFiles("nums.txt", "pg3333.txt"))
+print(CompareFiles("FP_AulasPráticas/aula06/nums.txt", "FP_AulasPráticas/aula06/nums.txt"))
+print(CompareFiles("FP_AulasPráticas/aula06/nums.txt", "FP_AulasPráticas/aula06/pg3333.txt"))
+
