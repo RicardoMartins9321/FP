@@ -36,7 +36,7 @@ def main():
 
     lst.sort()
 
-    printPauta(lst, 'new table.txt')
+    printPauta(lst, 'FP_AulasPráticas/aula06/tabela_Ex4.txt')
 
 
 if __name__ == "__main__":
