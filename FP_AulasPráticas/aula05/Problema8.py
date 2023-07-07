@@ -11,3 +11,6 @@ def ispalindrome(x):
 print(ispalindrome('faaf'))
 print(ispalindrome('f2af'))
 print(ispalindrome('1234321'))
+
+user_input = input('Enter your frase: ')
+print(f"{user_input} is a palindrome: {ispalindrome(user_input)}")
